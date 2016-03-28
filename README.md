@@ -1,5 +1,7 @@
 # iOS
-Application iOS like
+Application iOS like. keep updating....
+
+![](https://github.com/joexi/iOS/blob/master/readme.gif?raw=true)
 ## PROVIDES
 * App display and layout
 * Blur effect when dragging
@@ -10,7 +12,7 @@ Application iOS like
 * Search bar
 * App Group
 
-![](https://github.com/joexi/iOS/blob/master/readme.gif?raw=true)
+
 
 ## HOW TO USE
 * create a iOSView
