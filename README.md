@@ -1,7 +1,10 @@
 # iOS
 Application iOS like. keep updating....
 
+![](https://github.com/joexi/iOS/blob/master/readme2.gif?raw=true)
+
 ![](https://github.com/joexi/iOS/blob/master/readme.gif?raw=true)
+
 ## PROVIDES
 * App display and layout
 * Blur effect when dragging
