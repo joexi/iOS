@@ -25,7 +25,14 @@
         _titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_titleLabel];
-        [self shake];
+        
+        [self setUserInteractionEnabled:YES];
+        
+        UILongPressGestureRecognizer *gr = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                                                         action:@selector(longPress:)];
+        
+        [self addGestureRecognizer:gr];
+        
     }
     return self;
 }
@@ -59,5 +66,8 @@
     // Drawing code
 }
 */
-
+- (void)longPress:(id)sender {
+    NSLog(@"!!!!");
+    [self shake];
+}
 @end

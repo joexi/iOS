@@ -21,6 +21,10 @@
 
 @end
 
+typedef enum iOSViewStatus {
+    none = 0,
+    selected = 1
+}iOSViewStatus;
 
 @interface iOSView : UIView<UIScrollViewDelegate>
 {
@@ -30,10 +34,12 @@
     
     UIView *_contentView;
     NSUInteger _pageCount;
+    iOSViewStatus _status;
 }
 @property (nonatomic, weak) id <iOSViewDeleage> delegate;
 @property (nonatomic, assign) NSUInteger pageCount;
 @property (nonatomic, assign) NSUInteger columnCount;
 @property (nonatomic, assign) CGSize subViewSize;
+@property (nonatomic, assign) iOSViewStatus status;
 - (void)reload;
 @end

@@ -15,3 +15,4 @@
 
 #define COLOR_TEXT [UIColor colorWithRed:119./255. green:146./255. blue:65./255. alpha:1.]
 #define COLOR_TEXT_TITLE [UIColor colorWithRed:79./255. green:97./255. blue:44./255. alpha:1.]
+#define COLOR_BG [UIColor colorWithRed:216./255. green:227./255. blue:190/255. alpha:1.0]

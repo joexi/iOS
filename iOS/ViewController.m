@@ -19,7 +19,7 @@
     self = [super init];
     if (self) {
         _view = [[iOSView alloc] init];
-        _view.pageCount = 2;
+        _view.pageCount = 3;
         _view.columnCount = 4;
         _view.subViewSize = CGSizeMake(60, 60);
         _view.delegate = self;
@@ -47,10 +47,9 @@
 #pragma delegate of iOSView
 
 - (NSUInteger)view:(iOSView *)view numberOfSubviewsInPage:(NSUInteger)page {
-    if (page == 1) {
-        return 10;
-    }
-    return 0;
+    NSLog(@"page %d",page);
+
+    return (page + 1) * 5;
 }
 
 - (iOSButtonView *)view:(iOSView *)view viewAtIndex:(NSUInteger)index page:(NSUInteger)page {

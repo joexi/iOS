@@ -11,7 +11,7 @@
 #import "iOSScrollerView.h"
 #import "iOSBlurView.h"
 #import "iOSAnimationHelper.h"
-
+#import "Global.h"
 @implementation iOSView
 
 - (id)init {
@@ -30,14 +30,10 @@
         [_scrollView addSubview:_contentView];
         
         float degrees = 180;
-        _scrollView.transform = CGAffineTransformMakeRotation(degrees * M_PI/180);
-        _contentView.transform = CGAffineTransformMakeRotation(degrees * M_PI/180);
-        [self setBackgroundColor:[UIColor colorWithRed:216./255. green:227./255. blue:190/255. alpha:1.0]];
-        
-//        UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-//        l.text = @"!111111" ;
-//        [self addSubview:l];
-        
+        _scrollView.transform = CGAffineTransformMakeRotation(degrees * M_PI / 180);
+        _contentView.transform = CGAffineTransformMakeRotation(degrees * M_PI / 180);
+        [self setBackgroundColor:COLOR_BG];
+
         [_scrollView setNeedsDisplay];
         
         _blurView = [[iOSBlurView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
@@ -57,22 +53,50 @@
 - (void)setPageCount:(NSUInteger)pageCount {
     _pageCount = pageCount;
     [_scrollView setContentSize:CGSizeMake(_scrollView.frame.size.width * pageCount, _scrollView.frame.size.height + 100)];
-    [_contentView setFrame:CGRectMake(0, 0, _scrollView.frame.size.width, _scrollView.frame.size.height)];
+    [_contentView setFrame:CGRectMake(0, 0, _scrollView.frame.size.width * pageCount, _scrollView.frame.size.height)];
+}
+
+- (void)setStatus:(iOSViewStatus)status {
+    if (_status != status) {
+        _status = status;
+        switch (status) {
+            case none:
+                
+                break;
+            case selected:
+                
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 - (void)reload {
+    for (UIView *child in _contentView.subviews) {
+        [child removeFromSuperview];
+    }
+    
     for (int i = 0; i < self.pageCount; i++) {
         NSUInteger count = [self.delegate view:self numberOfSubviewsInPage:i];
+//        UIView *parent = [[UIView alloc] initWithFrame:CGRectMake(i * self.frame.size.width, 0, self.frame.size.width, self.frame.size.height)];
+//        [parent setBackgroundColor:[UIColor colorWithRed:i green:i/2 blue:0 alpha:1]];
+//        [_contentView addSubview:parent];
+        int displayIndex = self.pageCount - i - 1;
         for (int j = 0; j < count; j++) {
-            iOSButtonView *view = [self.delegate view:self viewAtIndex:j page:i];
+            iOSButtonView *view = [self.delegate view:self viewAtIndex:j page:displayIndex];
             float dis = (self.frame.size.width - self.subViewSize.width * self.columnCount) / (self.columnCount + 1);
-            view.frame = CGRectMake((j % 4 + 1) * dis + (j % 4) * self.subViewSize.width,
+            view.frame = CGRectMake(i * self.frame.size.width + (j % 4 + 1) * dis + (j % 4) * self.subViewSize.width,
                                     (j / 4 + 1) * dis + (j / 4) * (self.subViewSize.height + 10) + 10,
                                     self.subViewSize.width,
                                     self.subViewSize.height);
+            
+            
             [_contentView addSubview:view];
         }
     }
+    
+    [_scrollView scrollRectToVisible:CGRectMake(self.frame.size.width * (self.pageCount - 1), 0, self.frame.size.width, self.frame.size.height) animated:NO];
 }
 
 - (void)redrawBlur:(float)percentage
@@ -86,23 +110,22 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    [self cancelAnimation];
+    
+    if ((int)scrollView.contentOffset.x % (int)scrollView.frame.size.width != 0 &&
+        scrollView.contentOffset.y != 0) {
+        scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, 0);
+    }
+    NSLog(@"%f, %f" ,scrollView.contentOffset.x, scrollView.contentOffset.y);
+    [self redrawBlur:scrollView.contentOffset.y];
+}
+
+
+- (void)cancelAnimation {
     for (UIView *v in _contentView.subviews) {
         [iOSAnimationHelper cancelAnimation:v];
     }
-    
-    if (scrollView.contentOffset.x != 0 &&
-        scrollView.contentOffset.y != 0) {
-        scrollView.contentOffset = CGPointMake(0, 0);
-    }
-    NSLog(@"%f",scrollView.contentOffset.y);
-    [self redrawBlur:scrollView.contentOffset.y];
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end
