@@ -20,53 +20,6 @@
 
 + (UIImage*)getImage:(UIView *)targetView blur:(float)blur
 {
-    
-    // setup context
-//    UIGraphicsBeginImageContextWithOptions(targetView.bounds.size, NO, 0.0f); // use same scale factor as device
-//    CGContextRef cc = UIGraphicsGetCurrentContext();
-//    
-//    // render view
-//    [targetView.layer renderInContext:cc];
-//    
-//    // get reslting image
-//    UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    return result;
-//
-//    
-//    UIGraphicsBeginImageContext(targetView.bounds.size);
-//    [targetView.layer renderInContext:UIGraphicsGetCurrentContext()];
-//    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);
-//    return nil;
-//    UIGraphicsBeginImageContextWithOptions(targetView.bounds.size, targetView.opaque, 0.0);
-//    [targetView.layer renderInContext:UIGraphicsGetCurrentContext()];
-//    
-//    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
-//    
-//    UIGraphicsEndImageContext();
-//    
-//    return img;
-    
-//    UIGraphicsBeginImageContext(targetView.bounds.size);
-//    [targetView.layer renderInContext:UIGraphicsGetCurrentContext()];
-//    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    return img;
-    
-//    UIGraphicsBeginImageContextWithOptions(targetView.bounds.size, NO, 0.0);
-//    [targetView drawViewHierarchyInRect:targetView.bounds afterScreenUpdates:YES];
-//    UIImage * snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-////    return snapshotImage;
-//    CGSize size = targetView.frame.size;
-//    UIGraphicsBeginImageContext(size);
-//    CGContextRef c = UIGraphicsGetCurrentContext();
-//    [targetView.layer drawInContext:c];
-//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-    
     UIGraphicsBeginImageContextWithOptions(targetView.bounds.size, YES, 0.0f); // use same scale factor as device
     CGContextRef cc = UIGraphicsGetCurrentContext();
 
