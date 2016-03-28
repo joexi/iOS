@@ -8,7 +8,7 @@
 
 #import "iOSButtonView.h"
 #import "Global.h"
-
+#import "iOSAnimationHelper.h"
 @implementation iOSButtonView
 
 - (id)init {
@@ -25,8 +25,13 @@
         _titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_titleLabel];
+        [self shake];
     }
     return self;
+}
+
+- (void)shake {
+    [iOSAnimationHelper shake:self];
 }
 
 - (void)setFrame:(CGRect)frame {

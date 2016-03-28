@@ -10,6 +10,7 @@
 #import "iOSButtonView.h"
 #import "iOSScrollerView.h"
 #import "iOSBlurView.h"
+#import "iOSAnimationHelper.h"
 
 @implementation iOSView
 
@@ -85,6 +86,10 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    for (UIView *v in _contentView.subviews) {
+        [iOSAnimationHelper cancelAnimation:v];
+    }
+    
     if (scrollView.contentOffset.x != 0 &&
         scrollView.contentOffset.y != 0) {
         scrollView.contentOffset = CGPointMake(0, 0);
