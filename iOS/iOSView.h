@@ -11,7 +11,7 @@
 @class iOSButtonView;
 @class iOSTouchSwallowView;
 @class iOSScrollerView;
-
+@class iOSBlurView;
 @protocol iOSViewDeleage <NSObject>
 
 - (NSUInteger)view:(iOSView *)view numberOfSubviewsInPage:(NSUInteger)page;
@@ -26,6 +26,9 @@
 {
     NSMutableArray  *_buttons;
     iOSScrollerView *_scrollView;
+    iOSBlurView *_blurView;
+    
+    UIView *_contentView;
     NSUInteger _pageCount;
 }
 @property (nonatomic, weak) id <iOSViewDeleage> delegate;

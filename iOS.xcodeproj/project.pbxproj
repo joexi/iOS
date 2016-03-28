@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E84D334D1CA8DF7900BC2147 /* iOSBlurHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E84D334C1CA8DF7900BC2147 /* iOSBlurHelper.m */; };
+		E84D33521CA8FEB400BC2147 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = E84D33511CA8FEB400BC2147 /* UIImage+ImageEffects.m */; };
+		E84D33551CA8FEE300BC2147 /* iOSBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = E84D33541CA8FEE300BC2147 /* iOSBlurView.m */; };
 		E8BC620F1CA517C8009697C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BC620E1CA517C8009697C9 /* main.m */; };
 		E8BC62121CA517C8009697C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BC62111CA517C8009697C9 /* AppDelegate.m */; };
 		E8BC62151CA517C8009697C9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BC62141CA517C8009697C9 /* ViewController.m */; };
@@ -20,6 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E84D334B1CA8DF7900BC2147 /* iOSBlurHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSBlurHelper.h; sourceTree = "<group>"; };
+		E84D334C1CA8DF7900BC2147 /* iOSBlurHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSBlurHelper.m; sourceTree = "<group>"; };
+		E84D33501CA8FEB400BC2147 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		E84D33511CA8FEB400BC2147 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		E84D33531CA8FEE300BC2147 /* iOSBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSBlurView.h; sourceTree = "<group>"; };
+		E84D33541CA8FEE300BC2147 /* iOSBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSBlurView.m; sourceTree = "<group>"; };
 		E8BC620A1CA517C8009697C9 /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BC620E1CA517C8009697C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E8BC62101CA517C8009697C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -52,6 +61,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E84D334A1CA8DF5D00BC2147 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E84D33501CA8FEB400BC2147 /* UIImage+ImageEffects.h */,
+				E84D33511CA8FEB400BC2147 /* UIImage+ImageEffects.m */,
+				E84D334B1CA8DF7900BC2147 /* iOSBlurHelper.h */,
+				E84D334C1CA8DF7900BC2147 /* iOSBlurHelper.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		E8BC62011CA517C7009697C9 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +91,7 @@
 		E8BC620C1CA517C8009697C9 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				E84D334A1CA8DF5D00BC2147 /* Helper */,
 				E8BC62241CA517EE009697C9 /* View */,
 				E8BC62101CA517C8009697C9 /* AppDelegate.h */,
 				E8BC62111CA517C8009697C9 /* AppDelegate.m */,
@@ -105,6 +126,8 @@
 				E8BC622D1CA536E2009697C9 /* iOSTouchSwallowView.m */,
 				E8BC622F1CA547DE009697C9 /* iOSScrollerView.h */,
 				E8BC62301CA547DE009697C9 /* iOSScrollerView.m */,
+				E84D33531CA8FEE300BC2147 /* iOSBlurView.h */,
+				E84D33541CA8FEE300BC2147 /* iOSBlurView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -180,9 +203,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8BC62151CA517C8009697C9 /* ViewController.m in Sources */,
+				E84D33551CA8FEE300BC2147 /* iOSBlurView.m in Sources */,
 				E8BC62311CA547DE009697C9 /* iOSScrollerView.m in Sources */,
+				E84D334D1CA8DF7900BC2147 /* iOSBlurHelper.m in Sources */,
 				E8BC62121CA517C8009697C9 /* AppDelegate.m in Sources */,
 				E8BC622E1CA536E2009697C9 /* iOSTouchSwallowView.m in Sources */,
+				E84D33521CA8FEB400BC2147 /* UIImage+ImageEffects.m in Sources */,
 				E8BC62271CA5181E009697C9 /* iOSView.m in Sources */,
 				E8BC622A1CA5183F009697C9 /* iOSButtonView.m in Sources */,
 				E8BC620F1CA517C8009697C9 /* main.m in Sources */,
@@ -334,6 +360,7 @@
 				E8BC62231CA517C8009697C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
