@@ -9,6 +9,7 @@
 #import "iOSButtonView.h"
 #import "Global.h"
 #import "iOSAnimationHelper.h"
+#import "EventManager.h"
 @implementation iOSButtonView
 
 - (id)init {
@@ -28,17 +29,29 @@
         
         [self setUserInteractionEnabled:YES];
         
-        UILongPressGestureRecognizer *gr = [[UILongPressGestureRecognizer alloc] initWithTarget:self
-                                                                                         action:@selector(longPress:)];
-        
-        [self addGestureRecognizer:gr];
+//        UILongPressGestureRecognizer *gr = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+//                                                                                         action:@selector(longPress:)];
+//        
+//        [self addGestureRecognizer:gr];
         
     }
     return self;
 }
 
+- (void)cancelAnimation {
+    [iOSAnimationHelper cancelAnimation:self];
+}
+
 - (void)shake {
     [iOSAnimationHelper shake:self];
+}
+
+- (void)sizeUp {
+    [iOSAnimationHelper sizeUp:self];
+}
+
+- (void)sizeDown {
+    [iOSAnimationHelper sizeDown:self];
 }
 
 - (void)setFrame:(CGRect)frame {
@@ -66,8 +79,33 @@
     // Drawing code
 }
 */
-- (void)longPress:(id)sender {
-    NSLog(@"!!!!");
-    [self shake];
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    _onPress = YES;
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(longPress) object:nil];
+    [self performSelector:@selector(longPress) withObject:nil afterDelay:0.5];
 }
+
+- (void)longPress {
+    [[EventManager sharedManager] sendEvent:@"EVENT_SHAKE"];
+    if (_onPress) {
+        self.isSelected = YES;
+        [self sizeUp];
+    }
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    _onPress = false;
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(longPress) object:nil];
+    [self sizeDown];
+     _onPress = NO;
+}
+
+//- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//    NSLog(@"????");
+//    [self sizeDown];
+//    _touchBegin = NO;
+//}
 @end

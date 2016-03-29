@@ -15,4 +15,8 @@
 + (void)shake:(UIView *)view;
 
 + (void)cancelAnimation:(UIView *)view;
+
++ (void)sizeUp:(UIView *)view;
+
++ (void)sizeDown:(UIView *)view;
 @end

@@ -11,6 +11,8 @@
 		E84D33521CA8FEB400BC2147 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = E84D33511CA8FEB400BC2147 /* UIImage+ImageEffects.m */; };
 		E84D33551CA8FEE300BC2147 /* iOSBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = E84D33541CA8FEE300BC2147 /* iOSBlurView.m */; };
 		E84D33581CA93A8600BC2147 /* iOSAnimationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E84D33571CA93A8600BC2147 /* iOSAnimationHelper.m */; };
+		E85715901CAA5C2800FDBB37 /* EventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E857158F1CAA5C2800FDBB37 /* EventManager.m */; };
+		E85715931CAA625900FDBB37 /* EventObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E85715921CAA625900FDBB37 /* EventObject.m */; };
 		E8BC620F1CA517C8009697C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BC620E1CA517C8009697C9 /* main.m */; };
 		E8BC62121CA517C8009697C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BC62111CA517C8009697C9 /* AppDelegate.m */; };
 		E8BC62151CA517C8009697C9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BC62141CA517C8009697C9 /* ViewController.m */; };
@@ -32,6 +34,10 @@
 		E84D33541CA8FEE300BC2147 /* iOSBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSBlurView.m; sourceTree = "<group>"; };
 		E84D33561CA93A8600BC2147 /* iOSAnimationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSAnimationHelper.h; sourceTree = "<group>"; };
 		E84D33571CA93A8600BC2147 /* iOSAnimationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSAnimationHelper.m; sourceTree = "<group>"; };
+		E857158E1CAA5C2800FDBB37 /* EventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventManager.h; sourceTree = "<group>"; };
+		E857158F1CAA5C2800FDBB37 /* EventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventManager.m; sourceTree = "<group>"; };
+		E85715911CAA625900FDBB37 /* EventObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventObject.h; sourceTree = "<group>"; };
+		E85715921CAA625900FDBB37 /* EventObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventObject.m; sourceTree = "<group>"; };
 		E8BC620A1CA517C8009697C9 /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BC620E1CA517C8009697C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E8BC62101CA517C8009697C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -73,6 +79,10 @@
 				E84D334C1CA8DF7900BC2147 /* iOSBlurHelper.m */,
 				E84D33561CA93A8600BC2147 /* iOSAnimationHelper.h */,
 				E84D33571CA93A8600BC2147 /* iOSAnimationHelper.m */,
+				E857158E1CAA5C2800FDBB37 /* EventManager.h */,
+				E857158F1CAA5C2800FDBB37 /* EventManager.m */,
+				E85715911CAA625900FDBB37 /* EventObject.h */,
+				E85715921CAA625900FDBB37 /* EventObject.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -209,6 +219,8 @@
 			files = (
 				E8BC62151CA517C8009697C9 /* ViewController.m in Sources */,
 				E84D33551CA8FEE300BC2147 /* iOSBlurView.m in Sources */,
+				E85715931CAA625900FDBB37 /* EventObject.m in Sources */,
+				E85715901CAA5C2800FDBB37 /* EventManager.m in Sources */,
 				E8BC62311CA547DE009697C9 /* iOSScrollerView.m in Sources */,
 				E84D334D1CA8DF7900BC2147 /* iOSBlurHelper.m in Sources */,
 				E8BC62121CA517C8009697C9 /* AppDelegate.m in Sources */,

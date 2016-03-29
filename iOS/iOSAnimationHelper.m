@@ -38,7 +38,7 @@ static iOSAnimationHelper *_sharedHelper;
 
     [UIView animateWithDuration:0.01f animations:^{
         
-        view.transform = CGAffineTransformMakeRotation(degrees * M_PI/180);
+        view.transform = CGAffineTransformConcat(CGAffineTransformMakeRotation(degrees * M_PI/180), CGAffineTransformMakeScale(view.transform.a, view.transform.a));
     } completion:^(BOOL finished) {
         if (finished) {
             [iOSAnimationHelper shakeBack:view value:degrees];
@@ -54,7 +54,8 @@ static iOSAnimationHelper *_sharedHelper;
     [UIView beginAnimations:nil context:nil];
     [UIView animateWithDuration:0.01f animations:^{
         float degrees = -value;
-        view.transform = CGAffineTransformMakeRotation(degrees * M_PI/180);
+        
+        view.transform = CGAffineTransformConcat(CGAffineTransformMakeRotation(degrees * M_PI/180), CGAffineTransformMakeScale(view.transform.a, view.transform.a));
     } completion:^(BOOL finished) {
         if (finished) {
             [iOSAnimationHelper shake:view];
@@ -66,5 +67,24 @@ static iOSAnimationHelper *_sharedHelper;
     [UIView commitAnimations];
 }
 
++ (void)sizeUp:(UIView *)view {
+    [UIView beginAnimations:nil context:nil];
+    [UIView animateWithDuration:0.4f animations:^{
+        [view setTransform:CGAffineTransformMakeScale(1.2, 1.2)];
+    } completion:^(BOOL finished) {
+        
+    }];
+    [UIView commitAnimations];
+}
+
++ (void)sizeDown:(UIView *)view {
+    [UIView beginAnimations:nil context:nil];
+    [UIView animateWithDuration:0.4f animations:^{
+        [view setTransform:CGAffineTransformMakeScale(1, 1)];
+    } completion:^(BOOL finished) {
+        
+    }];
+    [UIView commitAnimations];
+}
 
 @end

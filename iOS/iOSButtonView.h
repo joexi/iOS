@@ -12,7 +12,11 @@
 {
     UIImageView *_iconView;
     UILabel *_titleLabel;
+    BOOL _onPress;
 }
 
 @property (nonatomic, assign) NSString *title;
+@property (nonatomic, assign) BOOL isSelected;
+
+- (void)cancelAnimation;
 @end

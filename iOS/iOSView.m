@@ -12,6 +12,7 @@
 #import "iOSBlurView.h"
 #import "iOSAnimationHelper.h"
 #import "Global.h"
+#import "EventManager.h"
 @implementation iOSView
 
 - (id)init {
@@ -39,6 +40,9 @@
         _blurView = [[iOSBlurView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
         _blurView.targetView = self;
         [self addSubview:_blurView];
+        [[EventManager sharedManager] addEvent:@"EVENT_SHAKE" target:self callback:^{
+            [self startShake];
+        }];
         
         
     }
@@ -46,6 +50,7 @@
 }
 
 - (void)dealloc {
+    [[EventManager sharedManager] removeEvent:@"EVENT_SHAKE" target:self];
     _scrollView = nil;
     _contentView = nil;
 }
@@ -123,8 +128,14 @@
 
 
 - (void)cancelAnimation {
+    for (iOSButtonView *v in _contentView.subviews) {
+        [v cancelAnimation];
+    }
+}
+
+- (void)startShake {
     for (UIView *v in _contentView.subviews) {
-        [iOSAnimationHelper cancelAnimation:v];
+        [iOSAnimationHelper shake:v];
     }
 }
 
